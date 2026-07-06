@@ -1,71 +1,187 @@
-###################
-What is CodeIgniter
-###################
+##################
+Tentang E-Bengkel
+##################
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+E-Bengkel merupakan Sistem Informasi Manajemen Bengkel berbasis web yang
+dikembangkan menggunakan Framework CodeIgniter 3. Aplikasi ini dibuat untuk
+membantu proses pengelolaan data bengkel seperti data layanan, mekanik,
+motor, serta booking servis kendaraan.
 
-*******************
-Release Information
-*******************
-
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
-
-**************************
-Changelog and New Features
-**************************
-
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+Sistem ini dirancang agar proses administrasi bengkel menjadi lebih mudah,
+cepat, dan terorganisir dengan baik melalui antarmuka berbasis web.
 
 *******************
-Server Requirements
+Informasi Proyek
 *******************
 
-PHP version 5.6 or newer is recommended.
+Repository ini berisi source code aplikasi **E-Bengkel** yang dikembangkan
+sebagai proyek pembelajaran dan tugas mata kuliah.
 
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+***********************
+Fitur Utama Aplikasi
+***********************
+
+Aplikasi memiliki beberapa fitur utama, antara lain:
+
+- Login Admin
+- Dashboard Statistik
+- Manajemen Data Motor (CRUD)
+- Manajemen Data Mekanik (CRUD)
+- Manajemen Data Layanan (CRUD)
+- Manajemen Booking Servis (CRUD)
+- Pencarian Data
+- Validasi Booking
+- Logout
+
+Selain itu sistem juga menerapkan beberapa aturan bisnis, seperti:
+
+- Motor yang sedang dibooking tidak dapat dipilih kembali.
+- Mekanik yang sedang menangani servis tidak dapat menerima booking lain.
+- Motor dan mekanik kembali tersedia apabila status booking berubah menjadi
+  **Selesai** atau **Dibatalkan**.
+
+*******************
+Persyaratan Server
+*******************
+
+Aplikasi ini direkomendasikan menggunakan:
+
+- PHP 8.2 atau lebih baru
+- MySQL / MariaDB
+- Apache (XAMPP)
+- CodeIgniter 3
+- Web Browser (Google Chrome, Microsoft Edge, Mozilla Firefox)
 
 ************
-Installation
+Instalasi
 ************
 
-Please see the `installation section <https://codeigniter.com/userguide3/installation/index.html>`_
-of the CodeIgniter User Guide.
+1. Clone repository.
 
-*******
-License
-*******
+```
+git clone https://github.com/username/e-bengkel.git
+```
 
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
+2. Pindahkan project ke folder:
+
+```
+htdocs/
+```
+
+3. Buat database baru dengan nama:
+
+```
+e_bengkel
+```
+
+4. Import file database:
+
+```
+database/e_bengkel.sql
+```
+
+5. Atur konfigurasi database pada file:
+
+```
+application/config/database.php
+```
+
+6. Jalankan Apache dan MySQL melalui XAMPP.
+
+7. Akses aplikasi melalui browser:
+
+```
+http://localhost/e-bengkel
+```
+
+*******************
+Struktur Database
+*******************
+
+Database terdiri dari beberapa tabel utama:
+
+- users
+- motor
+- mekanik
+- layanan
+- booking
 
 *********
-Resources
+Teknologi
 *********
 
--  `User Guide <https://codeigniter.com/docs>`_
--  `Contributing Guide <https://github.com/bcit-ci/CodeIgniter/blob/develop/contributing.md>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
+Aplikasi ini dikembangkan menggunakan:
 
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
+- PHP
+- CodeIgniter 3
+- MySQL
+- Bootstrap 5
+- HTML5
+- CSS3
+- JavaScript
 
-***************
-Acknowledgement
-***************
+******************
+Struktur Project
+******************
 
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+```
+application/
+│
+├── controllers/
+│   ├── Auth.php
+│   ├── Dashboard.php
+│   ├── Booking.php
+│   ├── Layanan.php
+│   ├── Mekanik.php
+│   └── Motor.php
+│
+├── models/
+│   ├── Auth_model.php
+│   ├── Booking_model.php
+│   ├── Layanan_model.php
+│   ├── Mekanik_model.php
+│   └── Motor_model.php
+│
+├── views/
+│   ├── auth/
+│   ├── booking/
+│   ├── dashboard/
+│   ├── layanan/
+│   ├── mekanik/
+│   ├── motor/
+│   └── templates/
+```
+
+************
+Pengembang
+************
+
+Nama : Handi Jian Ali
+NIM : 24010110070
+
+Nama : Muhamad dheniz wedi
+NIM : 24010110073
+
+Nama : Fitrah Hidayatullah
+NIM : 24010110116
+
+Program Studi : Ilmu Komputer
+
+*********
+Lisensi
+*********
+
+Aplikasi ini dibuat untuk keperluan pembelajaran, pengembangan, dan tugas
+perkuliahan. Penggunaan source code diperbolehkan untuk tujuan edukasi dengan
+tetap mencantumkan sumber apabila digunakan kembali.
+
+****************
+Ucapan Terima Kasih
+****************
+
+Terima kasih kepada:
+
+- Dosen pengampu mata kuliah.
+- Universitas Bumigora.
+- Tim pengembang CodeIgniter.
+- Seluruh pihak yang telah mendukung proses pengembangan aplikasi ini.
